@@ -1,0 +1,12 @@
+---
+- hosts: localhost
+  gather_facts: false
+  ignore_errors: true
+  tasks:
+
+    - name: get name
+      shell: uname -a 
+      register: sys_out
+
+    - debug:
+        msg: "{{ sys_out }}"
