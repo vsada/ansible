@@ -5,7 +5,7 @@
   tasks:
 
     - name: get name
-      win_shell: hostname 
+      shell: hostname 
       register: sys_out
 
     - debug:
