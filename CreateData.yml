@@ -1,7 +1,7 @@
 - hosts: localhost
   gather_facts: false
   vars:
-    weekly_report_status: "{{ roles_path }}/weekly_report_status.txt"
+    weekly_report_status: "{{ inventory_dir }}/weekly_report_status.txt"
 
   tasks:
   
