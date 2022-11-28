@@ -1,6 +1,7 @@
 ---
 - hosts: localhost
-  gather_facts: false
+  gather_facts: true
+  become: yes
   vars:
     weekly_report_status: "/tmp/awx_61_iztz8xi1/project/weekly_report_status.txt"
   tasks:
