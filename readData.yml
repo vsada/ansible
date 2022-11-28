@@ -2,7 +2,7 @@
 - hosts: localhost
   gather_facts: false
   vars:
-    weekly_report_status: "{{ hostvars['127.0.0.1'] }}/weekly_report_status.txt"
+    weekly_report_status: "/tmp/awx_61_iztz8xi1/project/weekly_report_status.txt"
   tasks:
   
     - debug:
