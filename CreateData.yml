@@ -1,7 +1,7 @@
 - hosts: localhost
   gather_facts: false
   vars:
-    weekly_report_status: "{{ hostvars['127.0.0.1'].playbook_dir }}/weekly_report_status.txt"
+    weekly_report_status: "/var/log/hosts/weekly_report_status.txt"
 
   tasks:
   
