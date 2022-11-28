@@ -6,7 +6,7 @@
   tasks:
   
     - debug:
-        msg: "{{ inventory_dir | dirname }}"
+        msg: "{{ weekly_report_status }}"
         
     - name: Check weekly status file
       stat: path={{ weekly_report_status }}
