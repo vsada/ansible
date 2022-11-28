@@ -1,0 +1,35 @@
+---
+- hosts: localhost
+  gather_facts: false
+  vars:
+    weekly_report_status: "/tmp/weekly_report_status.txt"
+  tasks:
+    - name: Check weekly status file
+      stat: path={{ weekly_report_status }}
+      register: weekly_file
+      ignore_errors: true
+
+    - name: verify weekly file 
+      debug:
+        msg: "{{ weekly_file }}"
+      ignore_errors: true
+
+    - name: get weekly data info
+      shell: cat {{ weekly_report_status }}
+      register: file_out
+      ignore_errors: true
+
+    - name: print message
+      debug:
+        msg: "{{ file_out.stdout }}"
+      ignore_errors: true
+
+
+
+    # - name: delete the old file
+    #   file:
+    #     state: absent
+    #     path: "{{ item }}"
+    #   with_items:
+    #     - "{{ weekly_report_status }}"
+    #   ignore_errors: true

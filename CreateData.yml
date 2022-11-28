@@ -1,0 +1,31 @@
+- hosts: localhost
+  gather_facts: false
+  vars:
+    weekly_report_status: "/tmp/weekly_report_status.txt"
+
+  tasks:
+    - name: Check weekly status file
+      stat: path={{ weekly_report_status }}
+      register: weekly_file
+      ignore_errors: true
+
+    - name: verify weekly file 
+      debug:
+        msg: "{{ weekly_file }}"
+      ignore_errors: true
+
+    - name: Creating an empty file
+      file:
+        path: "{{ weekly_report_status }}"
+        state: touch
+        mode: '0777'
+      when: not weekly_file.stat.exists
+      ignore_errors: true
+
+    - name: insert host summary info
+      lineinfile:
+        dest: "{{ weekly_report_status }}"
+        line: "<tr><td> tof</td> <td> unix </td> <td> {{ lookup('pipe','date +%Y-%m-%d') }}</td><td>Total - 30, Success-26, Fail-4</td></tr>"
+        state: present
+      become: false
+      ignore_errors: true 
