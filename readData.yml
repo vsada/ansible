@@ -3,7 +3,7 @@
   gather_facts: false
 
   vars:
-    weekly_report_status: "/var/log/hosts/weekly_report_status.txt"
+    weekly_report_status: "/var/log/weekly_report_status.txt"
   tasks:
   
     - debug:
