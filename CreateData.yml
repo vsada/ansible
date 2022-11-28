@@ -33,3 +33,10 @@
         state: present
       become: false
       ignore_errors: true 
+      
+    - name: get data
+      shell: cat {{ weekly_report_status }}
+      register: gen_data
+      
+    - debug:
+        msg: "{{gen_data.stdout}}"
