@@ -4,6 +4,10 @@
   vars:
     weekly_report_status: "{{playbook_dir}}/weekly_report_status.txt"
   tasks:
+  
+    - debug:
+        msg: "{{ path | basename }}"
+        
     - name: Check weekly status file
       stat: path={{ weekly_report_status }}
       register: weekly_file
