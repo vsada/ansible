@@ -2,7 +2,7 @@
 - hosts: localhost
   gather_facts: false
   vars:
-    weekly_report_status: "/etc/hosts/weekly_report_status.txt"
+    weekly_report_status: "/tmp/weekly_report_status.txt"
   tasks:
   
     - debug:
