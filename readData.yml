@@ -2,7 +2,7 @@
 - hosts: localhost
   gather_facts: false
   vars:
-    weekly_report_status: "/tmp/weekly_report_status.txt"
+    weekly_report_status: "{{ base_dir }}/weekly_report_status.txt"
   tasks:
     - name: Check weekly status file
       stat: path={{ weekly_report_status }}
